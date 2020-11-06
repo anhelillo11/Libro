@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numPag;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getAutor() {
@@ -42,6 +44,10 @@ public class Libro {
         return numeroReferencia;
     }
     
+    public int getVecesPrestado() {
+     return vecesPrestado;
+    }
+    
     public void setNumeroReferencia(String numReferencia) {
         if(numReferencia.length() >3) {
             numeroReferencia = numReferencia;
@@ -50,6 +56,12 @@ public class Libro {
             System.out.println("Error, el numero de referencia debe tener al menos tres digitos");
         }
     }
+    
+    public void prestado(){
+        vecesPrestado ++;
+    }
+    
+    
     
     public void imprimeAutor() {
         System.out.println(autor);
@@ -65,18 +77,20 @@ public class Libro {
             System.out.println("El titulo es: " + titulo);
             System.out.println("El numero de paginas es: " + numeroPaginas);
             System.out.println("El numero de referencia es: ZZZ");
+            System.out.println("El libro ha sido prestado: " + vecesPrestado + "veces");
         }
         else{
             System.out.println("El autor es: " + autor);
             System.out.println("El titulo es: " + titulo);
             System.out.println("El numero de paginas es: " + numeroPaginas);
             System.out.println("El numero de referencia es: " + numeroReferencia);
+            System.out.println("El libro ha sido prestado: " + vecesPrestado + "veces");
         }
     }
     
     
     public String getDetalles() {
         return "El autor es: " + autor + "  El titulo es: " + titulo + "  El numero de paginas es: "
-        + numeroPaginas + "  El numero de referencia es: " + numeroReferencia;
+        + numeroPaginas + "  El numero de referencia es: " + numeroReferencia + "  El libro ha sido prestado: " + vecesPrestado + "veces";
     }
 }
