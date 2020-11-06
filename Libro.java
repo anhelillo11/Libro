@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
     
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numPag;
+        numeroReferencia = "";
     }
     
     public String getAutor() {
@@ -36,6 +38,19 @@ public class Libro {
         return numeroPaginas; 
     }
     
+    public String getNumeroReferencia() {
+        return numeroReferencia;
+    }
+    
+    public void setNumeroReferencia(String numReferencia) {
+        if(numReferencia.length() >3) {
+            numeroReferencia = numReferencia;
+        }
+        else {
+            System.out.println("Error, el numero de referencia debe tener al menos tres digitos");
+        }
+    }
+    
     public void imprimeAutor() {
         System.out.println(autor);
     }
@@ -45,14 +60,23 @@ public class Libro {
     }
     
     public void imprimeDetalles() {
-        System.out.println("El autor es: " + autor);
-        System.out.println("El titulo es: " + titulo);
-        System.out.println("El numero de paginas es: " + numeroPaginas);
+        if(numeroReferencia == "") {
+            System.out.println("El autor es: " + autor);
+            System.out.println("El titulo es: " + titulo);
+            System.out.println("El numero de paginas es: " + numeroPaginas);
+            System.out.println("El numero de referencia es: ZZZ");
+        }
+        else{
+            System.out.println("El autor es: " + autor);
+            System.out.println("El titulo es: " + titulo);
+            System.out.println("El numero de paginas es: " + numeroPaginas);
+            System.out.println("El numero de referencia es: " + numeroReferencia);
+        }
     }
     
     
     public String getDetalles() {
         return "El autor es: " + autor + "  El titulo es: " + titulo + "  El numero de paginas es: "
-        + numeroPaginas;
+        + numeroPaginas + "  El numero de referencia es: " + numeroReferencia;
     }
 }
